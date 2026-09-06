@@ -11,6 +11,7 @@ val changeAppNamePatch = resourcePatch(
     description = "Изменяет название приложения на указанное в настройках патча",
     default = true
 ) {
+    compatibleWith("ru.mes.dnevnik")
     // Опция для ввода своего названия
     val appNameOption = stringOption(
         key = "appName",
