@@ -1,3 +1,9 @@
+## [1.0.0-dev.4](https://github.com/NextStepTeam/DnevnikNextPatch/compare/v1.0.0-dev.3...v1.0.0-dev.4) (2026-09-06)
+
+### 🐛 Фиксы
+
+* удалена замена пакета так как не работала) ([fdc059c](https://github.com/NextStepTeam/DnevnikNextPatch/commit/fdc059c448c4e31e64bdfd164f94dbdaf685d618))
+
 ## [1.0.0-dev.3](https://github.com/NextStepTeam/DnevnikNextPatch/compare/v1.0.0-dev.2...v1.0.0-dev.3) (2026-09-06)
 
 ### ✨ Новые фичи

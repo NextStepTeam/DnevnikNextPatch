@@ -3,14 +3,13 @@
 Патчи для приложения "Дневник" от NextStep.
 
 <!-- PATCHES_START -->
-> **[v1.0.0-dev.3](https://github.com/NextStepTeam/DnevnikNextPatch/releases/tag/v1.0.0-dev.3)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;3 patches total
+> **[v1.0.0-dev.4](https://github.com/NextStepTeam/DnevnikNextPatch/releases/tag/v1.0.0-dev.4)**&nbsp;&nbsp;•&nbsp;&nbsp;`dev`&nbsp;&nbsp;•&nbsp;&nbsp;2 patches total
 <details open>
-<summary>📦 ru.mes.dnevnik&nbsp;&nbsp;•&nbsp;&nbsp;2 patches</summary>
+<summary>📦 ru.mes.dnevnik&nbsp;&nbsp;•&nbsp;&nbsp;1 patch</summary>
 <br>
 
 | 💊&nbsp;Patch | 📜&nbsp;Description | ⚙️&nbsp;Options |
 |----------|----------------|-----------|
-| [Клонирование Дневника](#) | Изменяет имя пакета приложения, позволяя установить несколько копий.  | • Новое имя пакета |
 | [Смена названия приложения](#) | Изменяет название приложения на указанное в настройках патча | • Название приложения |
 
 </details>
