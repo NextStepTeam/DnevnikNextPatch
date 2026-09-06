@@ -1,13 +1,67 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.0.0-dev.1",
+  "version": "1.0.0-dev.2",
   "patches": [
+    {
+      "name": "Клонирование Дневника",
+      "description": "Изменяет имя пакета приложения, позволяя установить несколько копий. ",
+      "default": true,
+      "dependencies": [],
+      "compatiblePackages": [
+        {
+          "packageName": "ru.mes.dnevnik",
+          "name": null,
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": null,
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "key": "packageName",
+          "title": "Новое имя пакета",
+          "description": "Введите новое имя пакета для клонированного приложения",
+          "required": true,
+          "type": "kotlin.String",
+          "default": "space.gonextstep.dnevniknp",
+          "values": null
+        }
+      ]
+    },
     {
       "name": "Смена названия приложения",
       "description": "Изменяет название приложения на указанное в настройках патча",
-      "default": false,
+      "default": true,
       "dependencies": [],
-      "compatiblePackages": null,
+      "compatiblePackages": [
+        {
+          "packageName": "ru.mes.dnevnik",
+          "name": null,
+          "description": null,
+          "apkFileType": null,
+          "appIconColor": null,
+          "signatures": null,
+          "targets": [
+            {
+              "version": null,
+              "versionCodes": null,
+              "isExperimental": false,
+              "minSdk": null,
+              "description": null
+            }
+          ]
+        }
+      ],
       "options": [
         {
           "key": "appName",

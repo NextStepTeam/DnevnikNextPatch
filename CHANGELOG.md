@@ -1,3 +1,9 @@
+## [1.0.0-dev.2](https://github.com/NextStepTeam/DnevnikNextPatch/compare/v1.0.0-dev.1...v1.0.0-dev.2) (2026-09-06)
+
+### ✨ Новые фичи
+
+* Смена пакета приложения и проверка совместимости ([785180b](https://github.com/NextStepTeam/DnevnikNextPatch/commit/785180b694ffa61ca7a2ec2b2aeab3abd98474fd))
+
 ## 1.0.0-dev.1 (2026-09-06)
 
 ### 🐛 Фиксы
