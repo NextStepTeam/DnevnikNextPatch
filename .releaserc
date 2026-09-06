@@ -23,10 +23,8 @@
         "preset": "conventionalcommits",
         "presetConfig": {
             "types": [
-                { "type": "fix", "section": "🐛 Bug Fixes", "hidden": false },
-                { "type": "feat", "section": "✨ New Features", "hidden": false },
-                { "type": "bump", "section": "🚀 Updated App Support", "hidden": false },
-                { "type": "perf", "section": "🔧 Improvements",  "hidden": false },
+                { "type": "fix", "section": "🐛 Фиксы", "hidden": false },
+                { "type": "feat", "section": "✨ Новые фичи", "hidden": false },
                 { "type": "build", "hidden": true }
             ]
         }
