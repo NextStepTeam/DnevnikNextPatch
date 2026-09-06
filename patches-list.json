@@ -1,7 +1,15 @@
 {
   "NOTE": "Do NOT manually edit this file. This file is automatically updated when semantic release (release.yml) runs. Manually editing this file can break your releases and break third party tools that use this file.",
-  "version": "1.0.0-dev.2",
+  "version": "1.0.0-dev.3",
   "patches": [
+    {
+      "name": "Замена логотипов МЭШ",
+      "description": "Заменяет логотипы mos_logo.png, mos_logo_fs.png и mos_logo_ny.png на кастомные",
+      "default": false,
+      "dependencies": [],
+      "compatiblePackages": null,
+      "options": []
+    },
     {
       "name": "Клонирование Дневника",
       "description": "Изменяет имя пакета приложения, позволяя установить несколько копий. ",

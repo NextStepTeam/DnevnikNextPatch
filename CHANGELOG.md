@@ -1,3 +1,9 @@
+## [1.0.0-dev.3](https://github.com/NextStepTeam/DnevnikNextPatch/compare/v1.0.0-dev.2...v1.0.0-dev.3) (2026-09-06)
+
+### ✨ Новые фичи
+
+* замена логотипа приложения ([85051a2](https://github.com/NextStepTeam/DnevnikNextPatch/commit/85051a287e40acf14a0995c58c5d2245ef74ba17))
+
 ## [1.0.0-dev.2](https://github.com/NextStepTeam/DnevnikNextPatch/compare/v1.0.0-dev.1...v1.0.0-dev.2) (2026-09-06)
 
 ### ✨ Новые фичи
