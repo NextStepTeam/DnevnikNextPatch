@@ -13,9 +13,14 @@ patches {
 }
 
 dependencies {
-    // Для компиляции патчей
-    compileOnly("app.morphe:morphe-patches-library:1.6.2")
-    // Для работы PatchListGenerator
+    // Основные зависимости Morphe
+    implementation("app.morphe:morphe-patches-library:1.6.2")
+    //implementation("app.morphe:morphe-library:1.4.0")
+    implementation("app.morphe:morphe-patcher:1.12.0")
+
+    
+    // Остальные
+    implementation("com.google.guava:guava:32.1.3-jre")
     implementation("com.google.code.gson:gson:2.10.1")
 }
 
