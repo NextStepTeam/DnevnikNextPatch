@@ -1,37 +1,78 @@
 package space.gonextstep.dnevniknextpatch
 
-import app.morphe.patcher.patch.rawResourcePatch
-import app.morphe.patcher.patch.compatibleWith
+import app.morphe.patcher.patch.resourcePatch
+import app.morphe.patcher.patch.stringOption
+import java.io.FileWriter
+import java.nio.file.Files
 
 @Suppress("unused")
-val changeAppNamePatch = rawResourcePatch(
+val changeAppNamePatch = resourcePatch(
     name = "Смена названия приложения",
-    description = "Изменяет название приложения на 'Дневник NP' через замену в strings.xml",
+    description = "Изменяет название приложения на указанное в настройках патча",
     default = true
 ) {
-    compatibleWith("ru.mes.dnevnik")
-    
-    execute {
-        // 1. Находим нужный файл ресурсов
-        val targetFile = context.apkFiles.firstOrNull { 
-            it.name == "strings.xml" && it.path.startsWith("res/values")
-        } ?: error("strings.xml not found in APK")
+    // Опция для ввода своего названия
+    val appNameOption = stringOption(
+        key = "appName",
+        default = "Дневник NP",
+        values = mapOf(
+            "Дневник NP" to "Дневник NP",
+            "МЭШ" to "МЭШ",
+            "Дневник МЭШ" to "Дневник МЭШ"
+        ),
+        title = "Название приложения",
+        description = "Введите название, которое будет отображаться в лаунчере",
+        required = true
+    )
 
-        // 2. Читаем содержимое как строку
-        val content = targetFile.readText()
+    execute {
+        val appName = appNameOption.value ?: "Дневник NP"
+        println("✅ Патч 'Смена названия' применен! Новое имя: $appName")
         
-        // 3. Заменяем название (учитываем возможные варианты)
-        val newContent = content.replace(
-            "Дневник МЭШ", 
-            "Dnevnik NP"
-        )
-        
-        // 4. Если строка изменилась — записываем обратно
-        if (newContent != content) {
-            targetFile.writeText(newContent)
-            println("✅ Название приложения изменено на 'Дневник NP'")
-        } else {
-            println("❌ Строка 'Дневник МЭШ' не найдена в strings.xml")
+        try {
+            // Получаем директорию с ресурсами
+            val resDirectory = get("res")
+            
+            // Создаем папку values-v24 (если нет)
+            val valuesV24Directory = resDirectory.resolve("values")
+            if (!valuesV24Directory.isDirectory) {
+                Files.createDirectories(valuesV24Directory.toPath())
+            }
+            
+            val stringsXml = valuesV24Directory.resolve("strings.xml")
+            
+            // Создаем файл strings.xml если его нет
+            if (!stringsXml.exists()) {
+                FileWriter(stringsXml).use {
+                    it.write("<?xml version=\"1.0\" encoding=\"utf-8\"?><resources></resources>")
+                }
+            }
+            
+            // Обновляем или добавляем запись app_name
+            document("res/values/strings.xml").use { document ->
+                val resourcesElement = document.getElementsByTagName("resources").item(0)
+                
+                // Удаляем старую запись если есть
+                val existingElements = document.getElementsByTagName("string")
+                for (i in 0 until existingElements.length) {
+                    val element = existingElements.item(i)
+                    if (element.attributes.getNamedItem("name")?.textContent == "app_name") {
+                        resourcesElement.removeChild(element)
+                        break
+                    }
+                }
+                
+                // Добавляем новую запись
+                val stringElement = document.createElement("string")
+                stringElement.setAttribute("name", "app_name")
+                stringElement.textContent = appName
+                resourcesElement.appendChild(stringElement)
+            }
+            
+            println("✅ Название приложения изменено на: $appName")
+        } catch (e: Exception) {
+            println("⚠️ Ошибка при смене названия: ${e.message}")
+            e.printStackTrace()
         }
     }
 }
